@@ -31,7 +31,7 @@ export function About() {
             </p>
             
             <div className="pt-4">
-               <img referrerPolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Signature_of_Ratan_Tata.svg" alt="Signature" className="h-12 opacity-50 invert-[.8] sepia-[1] saturate-[3] hue-rotate-[10deg]" />
+               <div className="font-serif italic text-4xl text-luxury-gold/70 opacity-80 tracking-widest pl-2">Raghavv</div>
                <p className="mt-2 text-[10px] uppercase tracking-widest text-luxury-gold/50">The Management</p>
             </div>
           </motion.div>
