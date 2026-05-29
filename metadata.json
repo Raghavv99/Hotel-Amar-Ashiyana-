@@ -1,0 +1,8 @@
+{
+  "name": "Hotel Amar Ashiyana",
+  "description": "Luxury royal hotel website for Hotel Amar Ashiyana and Shikhar Restaurant in Etawah.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

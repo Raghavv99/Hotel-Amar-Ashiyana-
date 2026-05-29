@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-royal-black: #020202;
+  --color-royal-black-light: #0A0A0A;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-gold-light: #E5C373;
+  --color-burgundy: #4A0E17;
+  --color-ivory: #FFFFF0;
+  
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-royal-black);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+}
+
+.glass-nav {
+  background: rgba(11, 11, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 162, 74, 0.1);
+}
+
+.glass-card {
+  background: rgba(26, 26, 36, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 162, 74, 0.2);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #E5C373, #C8A24A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-gold {
+  background: var(--color-luxury-gold);
+  color: var(--color-royal-black);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.1em;
+}
+
+.btn-gold:hover {
+  background: var(--color-luxury-gold-light);
+  box-shadow: 0 0 30px rgba(200, 162, 74, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  border: 1px solid var(--color-luxury-gold);
+  color: var(--color-luxury-gold);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.1em;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(200, 162, 74, 0.1);
+  box-shadow: 0 0 20px rgba(200, 162, 74, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-royal-black); 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 162, 74, 0.3); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 162, 74, 0.6); 
+}

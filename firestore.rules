@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'admin@amarashiyana.com' ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true
+      );
+    }
+
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId || isAdmin();
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && request.auth.uid == userId || isAdmin();
+    }
+    
+    // Admin users can read and write everything
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+
+    // Contact Inquiries: Anyone can create (submit form), only admins can read/update/delete
+    match /contact_inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Restaurant Reservations: Anyone can create, only admins can read/update/delete
+    match /restaurant_reservations/{reservationId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Room Reservations: Anyone can create, only admins can read/update/delete
+    match /room_reservations/{reservationId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Reviews: Anyone can read approved reviews, authenticated users can create
+    match /reviews/{reviewId} {
+      allow read: if resource.data.isApproved == true || isAdmin();
+      allow create: if request.auth != null;
+      allow update, delete: if isAdmin();
+    }
+
+    // Gallery: Anyone can read, only admins can write (upload images logic applies to Storage as well)
+    match /gallery/{imageId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
